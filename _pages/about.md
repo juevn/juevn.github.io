@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: <a href='#'>Data Systems Lab</a>. POSTECH. Ph.D. Student.
 
 profile:
   align: right
