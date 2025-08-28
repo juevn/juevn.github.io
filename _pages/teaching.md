@@ -17,7 +17,7 @@ nav_order: 6
 
 ## Samsung Electronics
 
-- **Teaching Assistant – Data Processing Course (Prof. Wook-Shin Han) (2023)**  
+- **Teaching Assistant – Data Programming Course (Prof. Wook-Shin Han) (2023)**  
   Assisted in delivering a company-sponsored course covering Python, Data Processing, Spark, and Deep Learning.  
   - **Python & Data Processing**: Basics of Python (OOP, NumPy), data visualization, and data preparation.  
   - **Spark**: RDD fundamentals, memory & persistence, job execution model, SQL & DataFrame operations.  
