@@ -2,11 +2,23 @@
 layout: page
 permalink: /teaching/
 title: teaching
-description: Materials for courses you taught. Replace this text with your description.
+description: Teaching and mentoring experiences
 nav: true
 nav_order: 6
 ---
 
-For now, this page is assumed to be a static description of your courses. You can convert it to a collection similar to `_projects/` so that you can have a dedicated page for each course.
+## POSTECH
 
-Organize your courses by years, topics, or universities, however you like!
+- **POSTECHx Lecture (2024)**  
+  Developed a video-based lecture as part of the POSTECHx program, where undergraduate students create online courses for the university community.  
+  - *Operating Systems (Pintos Project)*: Explained coding assignments and project workflow in a structured way to support self-paced learning.
+
+---
+
+## Samsung Electronics
+
+- **Teaching Assistant – Data Processing Course (Prof. Wook-Shin Han) (2023)**  
+  Assisted in delivering a company-sponsored course covering Python, Data Processing, Spark, and Deep Learning.  
+  - **Python & Data Processing**: Basics of Python (OOP, NumPy), data visualization, and data preparation.  
+  - **Spark**: RDD fundamentals, memory & persistence, job execution model, SQL & DataFrame operations.  
+  - **Deep Learning**: Introduction to PyTorch and basic neural network implementation.
