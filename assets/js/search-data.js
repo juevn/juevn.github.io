@@ -49,16 +49,14 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather.html";
-            },},{id: "news-a-simple-inline-announcement",
-          title: 'A simple inline announcement.',
+            },},{id: "news-selected-for-an-exchange-program-and-studied-at-technical-university-of-munich-tum",
+          title: '🌍 Selected for an exchange program and studied at Technical University of Munich...',
           description: "",
-          section: "News",},{id: "news-a-long-announcement-with-details",
-          title: 'A long announcement with details',
+          section: "News",},{id: "news-graduated-from-postech-with-a-b-s-degree-in-computer-science-and-engineering",
+          title: '🎓 Graduated from POSTECH with a B.S. degree in Computer Science and Engineering....',
           description: "",
-          section: "News",handler: () => {
-              window.location.href = "/news/announcement_2.html";
-            },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
-          title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
+          section: "News",},{id: "news-started-ph-d-program-in-computer-science-and-engineering-at-postech",
+          title: '🚀 Started Ph.D. program in Computer Science and Engineering at POSTECH.',
           description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
