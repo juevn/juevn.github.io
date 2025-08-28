@@ -59,9 +59,9 @@
       "url": "https://example.com",
       "startDate": "2024-07",
       "endDate": "2024-08",
-      "highlights": ["Worked as an intern in the Mobile FTL team",
-      "Conducted a project titled 'Enhancing Mobile FTL Performance: An AI Model for User Command Prediction'",
-      "Developed an FTL simulator to analyze FTL mechanisms and implemented an AI-based model to predict user commands, improving overall FTL performance"
+      "highlights": [
+        "Mobile FTL Team",
+        "Project 'Enhancing Mobile FTL Performance: An AI Model for User Command Prediction'"
       ]
     }
   ],
