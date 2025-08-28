@@ -3,8 +3,7 @@
     "name": "Jueun Kim",
     "label": "Ph.D. Student in Computer Science",
     "image": "",
-    "email": "jekim@dblab.postech.ac.kr",
-    "summary": "Ph.D. student at Data Systems Lab @ Pohang University of Science and Technology (POSTECH), under the supervision of Professor Wook-Shin Han."
+    "email": "jekim@dblab.postech.ac.kr"
   },
   "education": [
     {
@@ -25,6 +24,15 @@
       "highlights": ["GPA: 4.04/4.3", "Graduated Summa Cum Laude"]
     },
     {
+      "institution": "Technical University of Munich (TUM)",
+      "location": "Munich, Germany",
+      "area": "Computer Science",
+      "studyType": "Exchange Student",
+      "startDate": "2024-09",
+      "endDate": "2025-02",
+      "highlights": ["Achieved top grades in Deep Learning and NLP coursework"]
+    },
+    {
       "institution": "Hyundai Chungun High School",
       "location": "Ulsan, South Korea",
       "studyType": "High School Diploma",
@@ -34,12 +42,27 @@
   ],
   "work": [
     {
-      "name": "Intern",
-      "position": "SK hynix",
+      "name": "Data Systems Lab, POSTECH",
+      "position": "Student Intern",
+      "url": "https://example.com",
+      "startDate": "2023-06",
+      "endDate": "2025-08",
+      "highlights": [
+        "Undergraduate Research Project I",
+        "Undergraduate Research Project II",
+        "SPARTA project"
+      ]
+    },
+    {
+      "name": "SK hynix",
+      "position": "Intern",
       "url": "https://example.com",
       "startDate": "2024-07",
       "endDate": "2024-08",
-      "summary": "Conducted a project titled 'Enhancing Mobile FTL Performance: An AI Model for User Command Prediction'. Developed an FTL simulator to understand FTL mechanisms and implemented an AI model to predict user commands, aiming to enhance FTL performance."
+      "highlights": ["Worked as an intern in the Mobile FTL team",
+      "Conducted a project titled 'Enhancing Mobile FTL Performance: An AI Model for User Command Prediction'",
+      "Developed an FTL simulator to analyze FTL mechanisms and implemented an AI-based model to predict user commands, improving overall FTL performance"
+      ]
     }
   ],
   "awards": [
@@ -86,7 +109,7 @@
   "skills": [
     {
       "name": "Programming Languages",
-      "icon": "fa-solid fa-hashtag",
+      "icon": "fa-solid fa-code",
       "keywords": [
         "Python",
         "C",
@@ -109,15 +132,11 @@
   ],
   "interests": [
     {
-      "name": "",
+      "name": "Artificial Intelligence",
       "icon": "fa-solid fa-tag",
       "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
+        "Large Language Models",
+        "Multi-modal Question Answering"
       ]
     }
   ],
@@ -130,12 +149,27 @@
   ],
   "projects": [
     {
-      "name": "Quantum Computing",
-      "summary": "Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.",
-      "highlights": ["Quantum Teleportation", "Quantum Cryptography"],
-      "startDate": "2018-01-01",
-      "endDate": "2018-01-01",
-      "url": "https://example.com"
+    "name": "Retrieval Enhancement in OTT-QA Model ",
+    "summary": "Development of an Open Table and Text Question Answering (OTT-QA) model integrating information from both unstructured text and structured tables for enhanced QA performance.",
+    "highlights": [
+      "Undergraduate Research Project II",
+      "Mentored by Sungho Park",
+      "Supervised by Prof. Wook-Shin Han",
+      "Received the Popular Award for outstanding presentation and project execution"
+    ],
+    "startDate": "2024-02",
+    "endDate": "2024-06"
+    },
+    {
+    "name": "How to Build a Correct Text-DB QA Benchmark",
+    "summary": "Proposed the Text-DB QA Task, which answers queries using both unstructured text and structured databases, and established a baseline and benchmark for it.",
+    "highlights": [
+      "Undergraduate Research Project I",
+      "Mentored by Sungho Park",
+      "Supervised by Prof. Wook-Shin Han"
+    ],
+    "startDate": "2023-09",
+    "endDate": "2023-12"
     }
   ]
 }
