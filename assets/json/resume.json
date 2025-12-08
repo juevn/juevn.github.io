@@ -21,7 +21,10 @@
       "studyType": "B.S.",
       "startDate": "2021-02",
       "endDate": "2025-08",
-      "highlights": ["GPA: 4.04/4.3", "Graduated Summa Cum Laude"]
+      "highlights": [
+        "GPA: 4.04/4.3",
+        "Graduated Summa Cum Laude"
+      ]
     },
     {
       "institution": "Technical University of Munich (TUM)",
@@ -30,7 +33,9 @@
       "studyType": "Exchange Student",
       "startDate": "2024-09",
       "endDate": "2025-02",
-      "highlights": ["Achieved top grades in Deep Learning and NLP coursework"]
+      "highlights": [
+        "Achieved top grades in Deep Learning and NLP coursework"
+      ]
     },
     {
       "institution": "Hyundai Chungun High School",
@@ -67,6 +72,12 @@
   ],
   "awards": [
     {
+      "title": "POSTECHIAN Fellowship (Creative)",
+      "date": "2025-11",
+      "awarder": "POSTECH",
+      "summary": "The POSTECHIAN Fellowship (Creative) was established to provide financial support for graduate students with outstanding admission scores, enabling them to focus on academic research while promoting active research activities and improving the quality of outcomes.”"
+    },
+    {
       "title": "Grand Prize, SK hynix Internship Program",
       "date": "2024-08",
       "awarder": "SK hynix",
@@ -94,82 +105,4 @@
       "title": "Global Leadership Program Scholarship",
       "date": "2022-09",
       "awarder": "POSTECH Computer Science and Engineering Department",
-      "summary": "A scholarship that selects excellent students in the department and provides education-related expenses."
-    }
-  ],
-  "publications": [
-    {
-      "name": "SPARTA: Scalable and Principled Benchmark of Tree-Structured Multi-hop QA over Text and Tables",
-      "publisher": "Sungho Park, Jueun Kim, Wook-Shin Han",
-      "releaseDate": "1905-06-30",
-      "url": "https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies",
-      "summary": "SPARTA is a fully automated SQL-centric pipeline that constructs a tree-structured multi-hop QA benchmark by unifying structured and unstructured evidence from tables and text into a single relational representation."
-    }
-  ],
-  "skills": [
-    {
-      "name": "Programming Languages",
-      "icon": "fa-solid fa-code",
-      "keywords": [
-        "Python",
-        "C",
-        "C++",
-        "SQL"
-      ]
-    }
-  ],
-  "languages": [
-    {
-      "language": "Korean",
-      "fluency": "Native speaker",
-      "icon": ""
-    },
-    {
-      "language": "English",
-      "fluency": "Fluent",
-      "icon": ""
-    }
-  ],
-  "interests": [
-    {
-      "name": "Artificial Intelligence",
-      "icon": "fa-solid fa-tag",
-      "keywords": [
-        "Large Language Models",
-        "Multi-modal Question Answering"
-      ]
-    }
-  ],
-  "references": [
-    { 
-      "name": "Professor Wook-Shin Han",
-      "icon": "fa-solid fa-laptop",
-      "reference": "Full Professor, Pohang University of Science and Technology (POSTECH), Pohang, South Korea. Email: wshan@dblab.postech.ac.kr"
-    }
-  ],
-  "projects": [
-    {
-    "name": "Retrieval Enhancement in OTT-QA Model ",
-    "summary": "Development of an Open Table and Text Question Answering (OTT-QA) model integrating information from both unstructured text and structured tables for enhanced QA performance.",
-    "highlights": [
-      "Undergraduate Research Project II",
-      "Mentored by Sungho Park",
-      "Supervised by Prof. Wook-Shin Han",
-      "Received the Popular Award for outstanding presentation and project execution"
-    ],
-    "startDate": "2024-02",
-    "endDate": "2024-06"
-    },
-    {
-    "name": "How to Build a Correct Text-DB QA Benchmark",
-    "summary": "Proposed the Text-DB QA Task, which answers queries using both unstructured text and structured databases, and established a baseline and benchmark for it.",
-    "highlights": [
-      "Undergraduate Research Project I",
-      "Mentored by Sungho Park",
-      "Supervised by Prof. Wook-Shin Han"
-    ],
-    "startDate": "2023-09",
-    "endDate": "2023-12"
-    }
-  ]
-}
+      "summary": "A scholarship that selects excellent students in the department and provides e
