@@ -105,4 +105,82 @@
       "title": "Global Leadership Program Scholarship",
       "date": "2022-09",
       "awarder": "POSTECH Computer Science and Engineering Department",
-      "summary": "A scholarship that selects excellent students in the department and provides e
+      "summary": "A scholarship that selects excellent students in the department and provides education-related expenses."
+    }
+  ],
+  "publications": [
+    {
+      "name": "SPARTA: Scalable and Principled Benchmark of Tree-Structured Multi-hop QA over Text and Tables",
+      "publisher": "Sungho Park, Jueun Kim, Wook-Shin Han",
+      "releaseDate": "1905-06-30",
+      "url": "https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies",
+      "summary": "SPARTA is a fully automated SQL-centric pipeline that constructs a tree-structured multi-hop QA benchmark by unifying structured and unstructured evidence from tables and text into a single relational representation."
+    }
+  ],
+  "skills": [
+    {
+      "name": "Programming Languages",
+      "icon": "fa-solid fa-code",
+      "keywords": [
+        "Python",
+        "C",
+        "C++",
+        "SQL"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Korean",
+      "fluency": "Native speaker",
+      "icon": ""
+    },
+    {
+      "language": "English",
+      "fluency": "Fluent",
+      "icon": ""
+    }
+  ],
+  "interests": [
+    {
+      "name": "Artificial Intelligence",
+      "icon": "fa-solid fa-tag",
+      "keywords": [
+        "Large Language Models",
+        "Multi-modal Question Answering"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "name": "Professor Wook-Shin Han",
+      "icon": "fa-solid fa-laptop",
+      "reference": "Full Professor, Pohang University of Science and Technology (POSTECH), Pohang, South Korea. Email: wshan@dblab.postech.ac.kr"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Retrieval Enhancement in OTT-QA Model ",
+      "summary": "Development of an Open Table and Text Question Answering (OTT-QA) model integrating information from both unstructured text and structured tables for enhanced QA performance.",
+      "highlights": [
+        "Undergraduate Research Project II",
+        "Mentored by Sungho Park",
+        "Supervised by Prof. Wook-Shin Han",
+        "Received the Popular Award for outstanding presentation and project execution"
+      ],
+      "startDate": "2024-02",
+      "endDate": "2024-06"
+    },
+    {
+      "name": "How to Build a Correct Text-DB QA Benchmark",
+      "summary": "Proposed the Text-DB QA Task, which answers queries using both unstructured text and structured databases, and established a baseline and benchmark for it.",
+      "highlights": [
+        "Undergraduate Research Project I",
+        "Mentored by Sungho Park",
+        "Supervised by Prof. Wook-Shin Han"
+      ],
+      "startDate": "2023-09",
+      "endDate": "2023-12"
+    }
+  ]
+}
