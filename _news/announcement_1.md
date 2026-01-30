@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2025-11-01
+date: 2026-01-26
 inline: true
 related_posts: false
 ---
 
-🏅 Received the **POSTECHIAN Fellowship (Creative)**.
+🔥 Our Paper accepted at ICLR 2026: “SPARTA: Scalable and Principled Benchmark of Tree-Structured Multi-hop QA over Text and Tables” (Second Author)

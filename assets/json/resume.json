@@ -112,7 +112,8 @@
     {
       "name": "SPARTA: Scalable and Principled Benchmark of Tree-Structured Multi-hop QA over Text and Tables",
       "publisher": "Sungho Park, Jueun Kim, Wook-Shin Han",
-      "releaseDate": "1905-06-30",
+      "venue": "ICLR 2026",
+      "releaseDate": "2026",
       "url": "https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies",
       "summary": "SPARTA is a fully automated SQL-centric pipeline that constructs a tree-structured multi-hop QA benchmark by unifying structured and unstructured evidence from tables and text into a single relational representation."
     }

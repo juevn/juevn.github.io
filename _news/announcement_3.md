@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2025-08-08
+date: 2025-09-01
 inline: true
 related_posts: false
 ---
 
-🎓 Graduated from POSTECH with a **B.S. degree** in Computer Science and Engineering.
+🚀 Started **Ph.D. program** in Computer Science and Engineering at POSTECH.
