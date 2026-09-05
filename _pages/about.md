@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Data Systems Lab</a>. POSTECH. Ph.D. Student.
+subtitle: <a href='https://dslab.postech.ac.kr/'>Data Systems Lab</a>. POSTECH. Ph.D. Student.
 
 profile:
   align: right
@@ -27,7 +27,11 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a Ph.D. student at Data Systems Lab @ Pohang University of Science and Technology (POSTECH), under the supervision of Professor Wook-Shin Han. 
+I am a Ph.D. student at [Data Systems Lab](https://dslab.postech.ac.kr/) @ Pohang University of Science and Technology (POSTECH), under the supervision of Professor [Wook-Shin Han](https://wscrony.github.io/).
+
+My research is on **multi-hop, multi-modal information retrieval**: finding evidence that is scattered across text, tables, and other modalities, where no single query retrieves everything a task needs.
+
+More broadly, I am interested in what retrieval should become when its consumer is an **agent carrying out a task** rather than a person reading through results. An agent needs the right evidence at the right step of its work, and has to decide for itself what to look for next. **Agent memory** connects naturally here — what an agent should keep from its own experience, and how that memory should be organized so it stays useful over long horizons instead of accumulating into noise.
 
 <!-- Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
 

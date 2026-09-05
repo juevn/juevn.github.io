@@ -23,3 +23,11 @@ $max-content-width: {{ site.max_width }};
   "tabler-icons/tabler-icons-filled.scss",
   "tabler-icons/tabler-icons-outline.scss"
 ;
+
+// Light-background paper figures used as publication previews: black text and
+// colored boxes on white. In dark mode, invert lightness and rotate the hue back
+// 180deg so the figure sits on a dark ground while keeping its original palette.
+// To add another such preview, append its filename to this selector.
+html[data-theme="dark"] img.preview[src*="hi-q"] {
+  filter: invert(1) hue-rotate(180deg);
+}
