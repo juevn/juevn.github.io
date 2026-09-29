@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Build assets/pdf/cv.pdf from assets/json/resume.json.
 
-The CV page and the downloadable PDF are generated from the same source, so
-edit assets/json/resume.json and re-run this script to keep them in sync.
+The typesetting follows Jake's Resume: a centered header, uppercase section
+headings with a full-width rule, and one compact row per entry with the date
+flush right.
 
 Usage:
     python3 bin/build_cv.py            # repo root is inferred from this file
@@ -29,15 +30,16 @@ CHROME_CANDIDATES = [
     "/usr/bin/chromium",
 ]
 
-# Sections are rendered in this order; missing or empty ones are skipped.
+# Rendered in this order; a section missing from resume.json is skipped entirely.
 SECTIONS = [
     ("education", "Education"),
     ("work", "Experience"),
     ("publications", "Publications"),
+    ("awards", "Honors & Awards"),
     ("teaching", "Teaching"),
-    ("awards", "Honors and Awards"),
-    ("projects", "Projects"),
 ]
+
+CONTACT = ["Data Systems Lab, POSTECH", "juevn.github.io"]
 
 MONTHS = {
     "01": "Jan", "02": "Feb", "03": "Mar", "04": "Apr", "05": "May", "06": "Jun",
@@ -45,30 +47,28 @@ MONTHS = {
 }
 
 CSS = """
-@page { size: A4; margin: 18mm 17mm; }
+@page { size: A4; margin: 13mm 14mm; }
 * { box-sizing: border-box; }
-body { font-family: "Charter","Georgia","Times New Roman",serif; font-size: 9.8pt; line-height: 1.42;
-       color: #1a1a1a; margin: 0; -webkit-font-smoothing: antialiased; }
-header { margin-bottom: 14pt; }
-h1 { font-size: 21pt; font-weight: 600; letter-spacing: .2pt; margin: 0 0 2pt; }
-.label { font-size: 10.5pt; color: #444; margin-bottom: 4pt; }
-.contact { font-size: 8.8pt; color: #666; }
-h2 { font-size: 10pt; font-weight: 700; text-transform: uppercase; letter-spacing: .9pt;
-     margin: 15pt 0 6pt; padding-bottom: 2.5pt; border-bottom: .6pt solid #bbb; }
-.row { display: flex; justify-content: space-between; align-items: baseline; gap: 12pt; margin-top: 6pt; }
+body { font-family: "Charter","Georgia","Times New Roman",serif; font-size: 9.6pt; line-height: 1.32;
+       color: #000; margin: 0; -webkit-font-smoothing: antialiased; }
+header { text-align: center; margin-bottom: 9pt; }
+h1 { font-size: 23pt; font-weight: 400; margin: 0; letter-spacing: .3pt; }
+h1 b { font-weight: 700; }
+.label { font-size: 9.4pt; margin-top: 2pt; }
+.contact { font-size: 9pt; margin-top: 3pt; }
+.contact span + span::before { content: " | "; }
+h2 { font-size: 10.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: .5pt;
+     margin: 9pt 0 1pt; padding-bottom: 1pt; border-bottom: .9pt solid #000; }
+.row { display: flex; justify-content: space-between; align-items: baseline; gap: 12pt; margin-top: 4pt; }
 .row .l { flex: 1; }
-.row .r { font-size: 8.8pt; color: #666; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.row .r { text-align: right; white-space: nowrap; font-size: 9.2pt; font-style: italic;
+          font-variant-numeric: tabular-nums; }
 .ttl { font-weight: 700; }
-.area { color: #555; font-style: italic; }
-.inst { color: #333; }
-ul { margin: 2pt 0 0; padding-left: 13pt; }
-li { margin: 1pt 0; color: #333; }
-.sum { margin-top: 2pt; color: #333; text-align: justify; }
-.pub { margin-top: 7pt; }
-.pub .ttl { display: block; }
-.pub .auth { color: #333; }
-.pub .ven { font-size: 8.8pt; color: #666; font-style: italic; }
-.url { font-style: normal; font-family: "SF Mono",Menlo,monospace; font-size: 8pt; }
+.sub { font-style: italic; font-size: 9.2pt; }
+.meta { font-size: 9pt; }
+.url { font-family: "SF Mono", Menlo, monospace; font-size: 8pt; }
+ul { margin: 1pt 0 0; padding-left: 12pt; }
+li { margin: .5pt 0; }
 h2, .row, .pub { break-inside: avoid; }
 h2 { break-after: avoid; }
 """
@@ -96,47 +96,46 @@ def bullets(items):
 
 
 def render_entry(key, entry):
+    """One resume entry as HTML. Every section is title-left / date-right."""
+    e = html.escape
     out = []
+
     if key == "education":
-        area = f' <span class="area">{html.escape(entry["area"])}</span>' if entry.get("area") else ""
+        area = f', {e(entry["area"])}' if entry.get("area") else ""
         out.append(row(
-            f'<span class="ttl">{html.escape(entry["studyType"])}</span>{area}<br>'
-            f'<span class="inst">{html.escape(entry["institution"])}</span>, {html.escape(entry.get("location", ""))}',
+            f'<span class="ttl">{e(entry["studyType"])}</span>{area}<br>'
+            f'<span class="sub">{e(entry["institution"])}, {e(entry.get("location", ""))}</span>',
             fmt_span(entry.get("startDate"), entry.get("endDate")),
         ))
     elif key == "work":
         out.append(row(
-            f'<span class="ttl">{html.escape(entry["position"])}</span><br>'
-            f'<span class="inst">{html.escape(entry["name"])}</span>',
+            f'<span class="ttl">{e(entry["position"])}</span><br>'
+            f'<span class="sub">{e(entry["name"])}</span>',
             fmt_span(entry.get("startDate"), entry.get("endDate")),
         ))
     elif key == "publications":
-        out.append(
-            f'<div class="pub"><div class="ttl">{html.escape(entry["name"])}</div>'
-            f'<div class="auth">{html.escape(entry["publisher"])}</div>'
-            f'<div class="ven">{html.escape(entry["venue"])} &nbsp;·&nbsp; '
-            f'<span class="url">{html.escape(entry["url"])}</span></div></div>'
-        )
-    elif key == "teaching":
+        url = entry.get("url", "").replace("https://", "")
+        tail = f' &nbsp;·&nbsp; <span class="url">{e(url)}</span>' if url else ""
         out.append(row(
-            f'<span class="ttl">{html.escape(entry["position"])} — {html.escape(entry["name"])}</span><br>'
-            f'<span class="inst">{html.escape(entry["institution"])}</span>',
-            entry["date"],
+            f'<span class="ttl">{e(entry["name"])}</span><br>'
+            f'<span class="meta">{e(entry["publisher"])}{tail}</span>',
+            e(entry["venue"]),
         ))
     elif key == "awards":
         out.append(row(
-            f'<span class="ttl">{html.escape(entry["title"])}</span><br>'
-            f'<span class="inst">{html.escape(entry["awarder"])}</span>',
+            f'<span class="ttl">{e(entry["title"])}</span><br>'
+            f'<span class="sub">{e(entry["awarder"])}</span>',
             fmt_date(entry["date"]),
         ))
-    elif key == "projects":
-        out.append(row(f'<span class="ttl">{html.escape(entry["name"])}</span>',
-                       fmt_span(entry.get("startDate"), entry.get("endDate"))))
-        if entry.get("summary"):
-            out.append(f'<div class="sum">{html.escape(entry["summary"])}</div>')
+    elif key == "teaching":
+        out.append(row(
+            f'<span class="ttl">{e(entry["position"])} — {e(entry["name"])}</span><br>'
+            f'<span class="sub">{e(entry["institution"])}</span>',
+            e(entry["date"]),
+        ))
 
-    if entry.get("summary") and key in ("education", "work", "awards", "publications", "teaching"):
-        out.append(f'<div class="sum">{html.escape(entry["summary"])}</div>')
+    if entry.get("summary"):
+        out.append(f'<div class="meta">{e(entry["summary"])}</div>')
     if entry.get("highlights"):
         out.append(bullets(entry["highlights"]))
     return out
@@ -153,18 +152,22 @@ def main():
     with open(SRC) as fh:
         data = json.load(fh)
 
+    e = html.escape
     basics = data["basics"]
+    names = basics["name"].split()
+    heading = f'{e(names[0])} <b>{e(" ".join(names[1:]))}</b>' if len(names) > 1 else e(basics["name"])
+    contact = "".join(f"<span>{e(c)}</span>" for c in [basics["email"]] + CONTACT)
+
     parts = [
-        f'<header><h1>{html.escape(basics["name"])}</h1>'
-        f'<div class="label">{html.escape(basics["label"])}</div>'
-        f'<div class="contact">{html.escape(basics["email"])} &nbsp;·&nbsp; '
-        f'Data Systems Lab, POSTECH &nbsp;·&nbsp; juevn.github.io</div></header>'
+        f'<header><h1>{heading}</h1>'
+        f'<div class="label">{e(basics["label"])}</div>'
+        f'<div class="contact">{contact}</div></header>'
     ]
-    for key, heading in SECTIONS:
+    for key, headline in SECTIONS:
         entries = data.get(key) or []
         if not entries:
             continue
-        parts.append(f"<h2>{heading}</h2>")
+        parts.append(f"<h2>{headline}</h2>")
         for entry in entries:
             parts.extend(render_entry(key, entry))
 
@@ -172,7 +175,7 @@ def main():
     with open(TMP, "w") as fh:
         fh.write(
             '<!doctype html><html><head><meta charset="utf-8">'
-            f'<title>{html.escape(basics["name"])} — CV</title>'
+            f'<title>{e(basics["name"])} — CV</title>'
             f"<style>{CSS}</style></head><body>{''.join(parts)}</body></html>"
         )
 
