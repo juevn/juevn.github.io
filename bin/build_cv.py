@@ -39,8 +39,6 @@ SECTIONS = [
     ("teaching", "Teaching"),
 ]
 
-CONTACT = ["Data Systems Lab, POSTECH", "juevn.github.io"]
-
 MONTHS = {
     "01": "Jan", "02": "Feb", "03": "Mar", "04": "Apr", "05": "May", "06": "Jun",
     "07": "Jul", "08": "Aug", "09": "Sep", "10": "Oct", "11": "Nov", "12": "Dec",
@@ -57,6 +55,7 @@ h1 b { font-weight: 700; }
 .label { font-size: 9.4pt; margin-top: 2pt; }
 .contact { font-size: 9pt; margin-top: 3pt; }
 .contact span + span::before { content: " | "; }
+.contact a { color: inherit; text-decoration: none; }
 h2 { font-size: 10.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: .5pt;
      margin: 9pt 0 1pt; padding-bottom: 1pt; border-bottom: .9pt solid #000; }
 .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12pt; margin-top: 4pt; }
@@ -95,7 +94,15 @@ def bullets(items):
     return "<ul>" + "".join(f"<li>{html.escape(i)}</li>" for i in items) + "</ul>"
 
 
-def render_entry(key, entry):
+def emphasize_self(authors, owner):
+    """Bold and underline the CV owner's name inside an author list."""
+    escaped = html.escape(authors)
+    if owner:
+        escaped = escaped.replace(html.escape(owner), f"<u><b>{html.escape(owner)}</b></u>")
+    return escaped
+
+
+def render_entry(key, entry, owner=""):
     """One resume entry as HTML. Every section is title-left / date-right."""
     e = html.escape
     out = []
@@ -114,11 +121,9 @@ def render_entry(key, entry):
             fmt_span(entry.get("startDate"), entry.get("endDate")),
         ))
     elif key == "publications":
-        url = entry.get("url", "").replace("https://", "")
-        tail = f' &nbsp;·&nbsp; <span class="url">{e(url)}</span>' if url else ""
         out.append(row(
             f'<span class="ttl">{e(entry["name"])}</span><br>'
-            f'<span class="meta">{e(entry["publisher"])}{tail}</span>',
+            f'<span class="meta">{emphasize_self(entry["publisher"], owner)}</span>',
             e(entry["venue"]),
         ))
     elif key == "awards":
@@ -156,7 +161,12 @@ def main():
     basics = data["basics"]
     names = basics["name"].split()
     heading = f'{e(names[0])} <b>{e(" ".join(names[1:]))}</b>' if len(names) > 1 else e(basics["name"])
-    contact = "".join(f"<span>{e(c)}</span>" for c in [basics["email"]] + CONTACT)
+    links = [(basics["email"], f'mailto:{basics["email"]}')]
+    if basics.get("url"):
+        links.append((basics["url"].replace("https://", ""), basics["url"]))
+    for profile in basics.get("profiles", []):
+        links.append((profile["network"], profile["url"]))
+    contact = "".join(f'<span><a href="{e(href)}">{e(text)}</a></span>' for text, href in links)
 
     parts = [
         f'<header><h1>{heading}</h1>'
@@ -169,7 +179,7 @@ def main():
             continue
         parts.append(f"<h2>{headline}</h2>")
         for entry in entries:
-            parts.extend(render_entry(key, entry))
+            parts.extend(render_entry(key, entry, basics["name"]))
 
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(TMP, "w") as fh:

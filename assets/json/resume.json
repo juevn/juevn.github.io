@@ -1,9 +1,15 @@
 {
   "basics": {
     "name": "Jueun Kim",
-    "label": "Ph.D. Student in Computer Science",
-    "image": "",
-    "email": "jekim@dblab.postech.ac.kr"
+    "label": "Ph.D. Student in CS, POSTECH",
+    "email": "jekim@dblab.postech.ac.kr",
+    "url": "https://juevn.github.io",
+    "profiles": [
+      {
+        "network": "Google Scholar",
+        "url": "https://scholar.google.com/citations?user=OlNKlb0AAAAJ"
+      }
+    ]
   },
   "education": [
     {
@@ -84,7 +90,7 @@
     },
     {
       "position": "Lecturer",
-      "name": "POSTECHx Lecture – Operating Systems",
+      "name": "POSTECHx Lecture, Pintos",
       "institution": "POSTECH",
       "date": "2024"
     },
