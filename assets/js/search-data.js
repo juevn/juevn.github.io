@@ -23,13 +23,6 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "nav-teaching",
-          title: "teaching",
-          description: "Teaching and mentoring experiences",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/teaching/";
-          },
         },{id: "news-selected-for-an-exchange-program-and-studied-at-technical-university-of-munich-tum",
           title: '🌍 Selected for an exchange program and studied at Technical University of Munich...',
           description: "",
