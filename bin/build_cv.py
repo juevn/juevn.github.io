@@ -34,6 +34,7 @@ SECTIONS = [
     ("education", "Education"),
     ("work", "Experience"),
     ("publications", "Publications"),
+    ("teaching", "Teaching"),
     ("awards", "Honors and Awards"),
     ("projects", "Projects"),
 ]
@@ -116,6 +117,12 @@ def render_entry(key, entry):
             f'<div class="ven">{html.escape(entry["venue"])} &nbsp;·&nbsp; '
             f'<span class="url">{html.escape(entry["url"])}</span></div></div>'
         )
+    elif key == "teaching":
+        out.append(row(
+            f'<span class="ttl">{html.escape(entry["position"])} — {html.escape(entry["name"])}</span><br>'
+            f'<span class="inst">{html.escape(entry["institution"])}</span>',
+            entry["date"],
+        ))
     elif key == "awards":
         out.append(row(
             f'<span class="ttl">{html.escape(entry["title"])}</span><br>'
@@ -128,7 +135,7 @@ def render_entry(key, entry):
         if entry.get("summary"):
             out.append(f'<div class="sum">{html.escape(entry["summary"])}</div>')
 
-    if entry.get("summary") and key in ("education", "work", "awards", "publications"):
+    if entry.get("summary") and key in ("education", "work", "awards", "publications", "teaching"):
         out.append(f'<div class="sum">{html.escape(entry["summary"])}</div>')
     if entry.get("highlights"):
         out.append(bullets(entry["highlights"]))
