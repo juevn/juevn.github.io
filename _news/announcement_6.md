@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🔥 Our Paper accepted at NeurIPS 2026: “Hi-Q: Hierarchical Evidence-guided Query Refinement for Multi-Hop Question Answering”
+🔥 Our Paper accepted at **NeurIPS 2026**: “Hi-Q: Hierarchical Evidence-guided Query Refinement for Multi-Hop Question Answering”
