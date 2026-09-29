@@ -39,12 +39,25 @@ SECTIONS = [
     ("teaching", "Teaching"),
 ]
 
+# Icons for the header contact line, as Private Use Area glyphs from the icon
+# fonts that ship with the theme. Keyed by profile network name; "email" and
+# "url" cover the corresponding basics fields.
+ICONS = {
+    "email": ("fa", "\uf0e0"),           # envelope
+    "url": ("fa", "\uf0ac"),             # globe
+    "Google Scholar": ("ai", "\ue9d4"),  # academicons scholar mark
+}
+ICON_FALLBACK = ("fa", "\uf0c1")         # link
+
 MONTHS = {
     "01": "Jan", "02": "Feb", "03": "Mar", "04": "Apr", "05": "May", "06": "Jun",
     "07": "Jul", "08": "Aug", "09": "Sep", "10": "Oct", "11": "Nov", "12": "Dec",
 }
 
 CSS = """
+@font-face { font-family: "CVIconFA"; src: url("../webfonts/fa-solid-900.woff2") format("woff2"); }
+@font-face { font-family: "CVIconAI"; src: url("../fonts/academicons.ttf") format("truetype"),
+                                          url("../fonts/academicons.woff") format("woff"); }
 @page { size: A4; margin: 13mm 14mm; }
 * { box-sizing: border-box; }
 body { font-family: "Charter","Georgia","Times New Roman",serif; font-size: 9.6pt; line-height: 1.32;
@@ -56,6 +69,9 @@ h1 b { font-weight: 700; }
 .contact { font-size: 9pt; margin-top: 3pt; }
 .contact span + span::before { content: " | "; }
 .contact a { color: inherit; text-decoration: none; }
+.ic { font-style: normal; font-size: 8.4pt; margin-right: 2.5pt; }
+.ic.fa { font-family: "CVIconFA"; }
+.ic.ai { font-family: "CVIconAI"; }
 h2 { font-size: 10.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: .5pt;
      margin: 9pt 0 1pt; padding-bottom: 1pt; border-bottom: .9pt solid #000; }
 .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12pt; margin-top: 4pt; }
@@ -161,12 +177,20 @@ def main():
     basics = data["basics"]
     names = basics["name"].split()
     heading = f'{e(names[0])} <b>{e(" ".join(names[1:]))}</b>' if len(names) > 1 else e(basics["name"])
-    links = [(basics["email"], f'mailto:{basics["email"]}')]
+    links = [(basics["email"], f'mailto:{basics["email"]}', "email")]
     if basics.get("url"):
-        links.append((basics["url"].replace("https://", ""), basics["url"]))
+        links.append((basics["url"].replace("https://", ""), basics["url"], "url"))
     for profile in basics.get("profiles", []):
-        links.append((profile["network"], profile["url"]))
-    contact = "".join(f'<span><a href="{e(href)}">{e(text)}</a></span>' for text, href in links)
+        links.append((profile["network"], profile["url"], profile["network"]))
+
+    chunks = []
+    for text, href, icon_key in links:
+        family, glyph = ICONS.get(icon_key, ICON_FALLBACK)
+        chunks.append(
+            f'<span><a href="{e(href)}">'
+            f'<i class="ic {family}">{glyph}</i>{e(text)}</a></span>'
+        )
+    contact = "".join(chunks)
 
     parts = [
         f'<header><h1>{heading}</h1>'
