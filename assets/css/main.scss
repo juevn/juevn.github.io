@@ -32,3 +32,10 @@ html[data-theme="dark"] img.preview[src*="hi-q"],
 html[data-theme="dark"] img.preview[src*="canopy"] {
   filter: invert(1) hue-rotate(180deg);
 }
+
+// Short note rendered right after a publication's author list, e.g. shared
+// first authorship. Kept smaller and lighter than the names themselves.
+.author-note {
+  font-size: 0.85em;
+  opacity: 0.75;
+}
