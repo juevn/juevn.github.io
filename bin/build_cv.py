@@ -15,6 +15,7 @@ Requires Google Chrome (headless) for PDF rendering.
 import html
 import json
 import os
+import re
 import subprocess
 import sys
 
@@ -82,6 +83,7 @@ h2 { font-size: 10.5pt; font-weight: 700; text-transform: uppercase; letter-spac
 .sub { font-style: italic; font-size: 9.2pt; }
 .meta { font-size: 9pt; }
 .url { font-family: "SF Mono", Menlo, monospace; font-size: 8pt; }
+.note { font-size: 8.4pt; margin-top: 3pt; }
 ul { margin: 1pt 0 0; padding-left: 12pt; }
 li { margin: .5pt 0; }
 h2, .row, .pub { break-inside: avoid; }
@@ -110,12 +112,16 @@ def bullets(items):
     return "<ul>" + "".join(f"<li>{html.escape(i)}</li>" for i in items) + "</ul>"
 
 
+# Equal-contribution and similar markers, matching what al-folio recognises.
+AUTHOR_MARKERS = "*\u2217\u2020\u2021\u00a7\u00b6"
+
+
 def emphasize_self(authors, owner):
-    """Bold and underline the CV owner's name inside an author list."""
+    """Bold and underline the owner's name; raise contribution markers."""
     escaped = html.escape(authors)
     if owner:
         escaped = escaped.replace(html.escape(owner), f"<u><b>{html.escape(owner)}</b></u>")
-    return escaped
+    return re.sub(f"([{re.escape(AUTHOR_MARKERS)}]+)", r"<sup>\1</sup>", escaped)
 
 
 def render_entry(key, entry, owner=""):
@@ -204,6 +210,10 @@ def main():
         parts.append(f"<h2>{headline}</h2>")
         for entry in entries:
             parts.extend(render_entry(key, entry, basics["name"]))
+        if key == "publications" and any(
+            c in entry.get("publisher", "") for entry in entries for c in AUTHOR_MARKERS
+        ):
+            parts.append('<div class="note"><sup>*</sup>Equal contribution</div>')
 
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(TMP, "w") as fh:

@@ -61,6 +61,13 @@
   ],
   "publications": [
     {
+      "name": "CANOPY: Adaptive-Granularity Evidence Compression for Multimodal RAG",
+      "publisher": "Hyojeong Yun*, Jueun Kim*, Wook-Shin Han",
+      "venue": "arXiv preprint arXiv:2610.00923",
+      "releaseDate": "2026",
+      "url": "https://arxiv.org/abs/2610.00923"
+    },
+    {
       "name": "Hi-Q: Hierarchical Evidence-guided Query Refinement for Multi-Hop Question Answering",
       "publisher": "Jueun Kim, Sungho Park, Wook-Shin Han",
       "venue": "NeurIPS 2026",
