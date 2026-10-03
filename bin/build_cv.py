@@ -83,7 +83,7 @@ h2 { font-size: 10.5pt; font-weight: 700; text-transform: uppercase; letter-spac
 .sub { font-style: italic; font-size: 9.2pt; }
 .meta { font-size: 9pt; }
 .url { font-family: "SF Mono", Menlo, monospace; font-size: 8pt; }
-.note { font-size: 8.4pt; margin-top: 3pt; }
+.note { font-size: 8.4pt; }
 ul { margin: 1pt 0 0; padding-left: 12pt; }
 li { margin: .5pt 0; }
 h2, .row, .pub { break-inside: avoid; }
@@ -143,9 +143,12 @@ def render_entry(key, entry, owner=""):
             fmt_span(entry.get("startDate"), entry.get("endDate")),
         ))
     elif key == "publications":
+        authors = emphasize_self(entry["publisher"], owner)
+        if any(c in entry.get("publisher", "") for c in AUTHOR_MARKERS):
+            authors += ' <span class="note">(<sup>*</sup>equal contribution)</span>'
         out.append(row(
             f'<span class="ttl">{e(entry["name"])}</span><br>'
-            f'<span class="meta">{emphasize_self(entry["publisher"], owner)}</span>',
+            f'<span class="meta">{authors}</span>',
             e(entry["venue"]),
         ))
     elif key == "awards":
@@ -210,10 +213,6 @@ def main():
         parts.append(f"<h2>{headline}</h2>")
         for entry in entries:
             parts.extend(render_entry(key, entry, basics["name"]))
-        if key == "publications" and any(
-            c in entry.get("publisher", "") for entry in entries for c in AUTHOR_MARKERS
-        ):
-            parts.append('<div class="note"><sup>*</sup>Equal contribution</div>')
 
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(TMP, "w") as fh:
