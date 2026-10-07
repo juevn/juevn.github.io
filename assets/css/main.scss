@@ -39,3 +39,30 @@ html[data-theme="dark"] img.preview[src*="canopy"] {
   font-size: 0.85em;
   opacity: 0.75;
 }
+
+// Labelled links under the profile photo on the about page. Sized to wrap into
+// a tidy block beside the portrait rather than one long row.
+.profile-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  margin-top: 12px;
+
+  // The theme only outlines buttons inside .publications, so repeat that look
+  // here to keep one button vocabulary across the site.
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    padding: 0.28rem 0.5rem;
+    color: var(--global-text-color);
+    border: 1px solid var(--global-text-color);
+
+    &:hover {
+      color: var(--global-theme-color);
+      border-color: var(--global-theme-color);
+    }
+  }
+}
