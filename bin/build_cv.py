@@ -36,6 +36,7 @@ SECTIONS = [
     ("education", "Education"),
     ("work", "Experience"),
     ("publications", "Publications"),
+    ("talks", "Talks"),
     ("awards", "Honors & Awards"),
     ("teaching", "Teaching"),
 ]
@@ -59,7 +60,7 @@ CSS = """
 @font-face { font-family: "CVIconFA"; src: url("../webfonts/fa-solid-900.woff2") format("woff2"); }
 @font-face { font-family: "CVIconAI"; src: url("../fonts/academicons.ttf") format("truetype"),
                                           url("../fonts/academicons.woff") format("woff"); }
-@page { size: A4; margin: 12mm 14mm; }
+@page { size: A4; margin: 13mm 14mm; }
 * { box-sizing: border-box; }
 body { font-family: "Charter","Georgia","Times New Roman",serif; font-size: 9.6pt; line-height: 1.32;
        color: #000; margin: 0; -webkit-font-smoothing: antialiased; }
@@ -74,8 +75,8 @@ h1 b { font-weight: 700; }
 .ic.fa { font-family: "CVIconFA"; }
 .ic.ai { font-family: "CVIconAI"; }
 h2 { font-size: 10.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: .5pt;
-     margin: 8pt 0 1pt; padding-bottom: 1pt; border-bottom: .9pt solid #000; }
-.row { display: flex; justify-content: space-between; align-items: baseline; gap: 12pt; margin-top: 3.5pt; }
+     margin: 9pt 0 1pt; padding-bottom: 1pt; border-bottom: .9pt solid #000; }
+.row { display: flex; justify-content: space-between; align-items: baseline; gap: 12pt; margin-top: 4pt; }
 .row .l { flex: 1; }
 .row .r { text-align: right; white-space: nowrap; font-size: 9.2pt; font-style: italic;
           font-variant-numeric: tabular-nums; }
@@ -87,6 +88,7 @@ h2 { font-size: 10.5pt; font-weight: 700; text-transform: uppercase; letter-spac
 ul { margin: 1pt 0 0; padding-left: 12pt; }
 li { margin: .5pt 0; }
 h2, .row, .pub { break-inside: avoid; }
+.cv-section { break-inside: avoid; }
 h2 { break-after: avoid; }
 """
 
@@ -151,6 +153,12 @@ def render_entry(key, entry, owner=""):
             f'<span class="meta">{authors}</span>',
             e(entry["venue"]),
         ))
+    elif key == "talks":
+        out.append(row(
+            f'<span class="ttl">{e(entry["name"])}</span><br>'
+            f'<span class="sub">{e(entry["event"])}</span>',
+            fmt_date(entry["date"]),
+        ))
     elif key == "awards":
         out.append(row(
             f'<span class="ttl">{e(entry["title"])}</span><br>'
@@ -210,9 +218,10 @@ def main():
         entries = data.get(key) or []
         if not entries:
             continue
-        parts.append(f"<h2>{headline}</h2>")
+        parts.append(f'<section class="cv-section"><h2>{headline}</h2>')
         for entry in entries:
             parts.extend(render_entry(key, entry, basics["name"]))
+        parts.append("</section>")
 
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(TMP, "w") as fh:

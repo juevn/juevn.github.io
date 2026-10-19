@@ -90,30 +90,11 @@
       "url": "https://arxiv.org/abs/2602.23286"
     }
   ],
-  "teaching": [
+  "talks": [
     {
-      "position": "Teaching Assistant",
-      "name": "AI Application Specialist Course",
-      "institution": "Samsung Electronics",
-      "date": "2026"
-    },
-    {
-      "position": "Teaching Assistant",
-      "name": "Introduction to Data Analysis",
-      "institution": "POSTECH",
-      "date": "2026"
-    },
-    {
-      "position": "Lecturer",
-      "name": "POSTECHx Lecture, Pintos",
-      "institution": "POSTECH",
-      "date": "2024"
-    },
-    {
-      "position": "Teaching Assistant",
-      "name": "Data Programming Course",
-      "institution": "Samsung Electronics",
-      "date": "2023"
+      "name": "SPARTA: Scalable and Principled Benchmark of Tree-Structured Multi-hop QA over Text and Tables",
+      "event": "2026 Global AI Frontier Lab Workshop, Seoul",
+      "date": "2026-07"
     }
   ],
   "awards": [
@@ -141,6 +122,32 @@
       "title": "Global Leadership Program Scholarship",
       "date": "2022-09",
       "awarder": "POSTECH Computer Science and Engineering Department"
+    }
+  ],
+  "teaching": [
+    {
+      "position": "Teaching Assistant",
+      "name": "AI Application Specialist Course",
+      "institution": "Samsung Electronics",
+      "date": "2026"
+    },
+    {
+      "position": "Teaching Assistant",
+      "name": "Introduction to Data Analysis",
+      "institution": "POSTECH",
+      "date": "2026"
+    },
+    {
+      "position": "Lecturer",
+      "name": "POSTECHx Lecture, Pintos",
+      "institution": "POSTECH",
+      "date": "2024"
+    },
+    {
+      "position": "Teaching Assistant",
+      "name": "Data Programming Course",
+      "institution": "Samsung Electronics",
+      "date": "2023"
     }
   ]
 }
