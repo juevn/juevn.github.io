@@ -48,16 +48,23 @@
   "work": [
     {
       "name": "Data Systems Lab, POSTECH",
-      "position": "Student Intern",
+      "position": "Lab Server Administrator",
       "url": "https://dslab.postech.ac.kr/",
-      "startDate": "2023-06",
-      "endDate": "2025-08"
+      "startDate": "2025-09",
+      "endDate": "present"
     },
     {
       "name": "SK hynix",
       "position": "Intern",
       "startDate": "2024-07",
       "endDate": "2024-08"
+    },
+    {
+      "name": "Data Systems Lab, POSTECH",
+      "position": "Student Intern",
+      "url": "https://dslab.postech.ac.kr/",
+      "startDate": "2023-06",
+      "endDate": "2025-08"
     }
   ],
   "publications": [

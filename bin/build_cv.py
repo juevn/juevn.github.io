@@ -59,7 +59,7 @@ CSS = """
 @font-face { font-family: "CVIconFA"; src: url("../webfonts/fa-solid-900.woff2") format("woff2"); }
 @font-face { font-family: "CVIconAI"; src: url("../fonts/academicons.ttf") format("truetype"),
                                           url("../fonts/academicons.woff") format("woff"); }
-@page { size: A4; margin: 13mm 14mm; }
+@page { size: A4; margin: 12mm 14mm; }
 * { box-sizing: border-box; }
 body { font-family: "Charter","Georgia","Times New Roman",serif; font-size: 9.6pt; line-height: 1.32;
        color: #000; margin: 0; -webkit-font-smoothing: antialiased; }
@@ -74,8 +74,8 @@ h1 b { font-weight: 700; }
 .ic.fa { font-family: "CVIconFA"; }
 .ic.ai { font-family: "CVIconAI"; }
 h2 { font-size: 10.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: .5pt;
-     margin: 9pt 0 1pt; padding-bottom: 1pt; border-bottom: .9pt solid #000; }
-.row { display: flex; justify-content: space-between; align-items: baseline; gap: 12pt; margin-top: 4pt; }
+     margin: 8pt 0 1pt; padding-bottom: 1pt; border-bottom: .9pt solid #000; }
+.row { display: flex; justify-content: space-between; align-items: baseline; gap: 12pt; margin-top: 3.5pt; }
 .row .l { flex: 1; }
 .row .r { text-align: right; white-space: nowrap; font-size: 9.2pt; font-style: italic;
           font-variant-numeric: tabular-nums; }
