@@ -115,8 +115,8 @@
       "name": "SPARTA: Scalable and Principled Benchmark of Tree-Structured Multi-hop QA over Text and Tables",
       "event": "ICLR 2026",
       "date": "2026",
-      "problem": "Multi-hop QA benchmarks spanning text and tables are expensive to annotate, and existing ones give no guarantee that a generated query is answerable or that its structure looks natural.",
-      "contribution": "Built a fully automated SQL-centric pipeline that unifies tables and text into one relational representation, with provenance-based refinement for query validity and realistic-structure enforcement for phrasing — a quarter of HybridQA's annotation time."
+      "problem": "Table-text multi-hop benchmarks are small and hand-curated, rarely going past two hops or requiring aggregation and grouping; generating them automatically instead raises whether a query is actually answerable and whether its phrasing reads naturally.",
+      "contribution": "Built a fully automated SQL-centric pipeline that extracts atomic facts from passages into grounding tables and generates nested queries at a target hop count, with provenance-based refinement for executability and realistic-structure enforcement for phrasing — thousands of QA pairs at a quarter of HybridQA's annotation time, on which models scoring above 70 F1 on HybridQA and 50 F1 on OTT-QA lose more than 30 F1."
     },
     {
       "name": "Home AI Agent with Event Memory",
