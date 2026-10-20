@@ -63,7 +63,11 @@
       "position": "Student Intern",
       "url": "https://dslab.postech.ac.kr/",
       "startDate": "2023-06",
-      "endDate": "2025-08"
+      "endDate": "2025-08",
+      "highlights": [
+        "Undergraduate Research Project I — proposed the Text-DB QA task and built its benchmark",
+        "Undergraduate Research Project II — developed an open-domain text-table QA (OTT-QA) model"
+      ]
     }
   ],
   "publications": [
