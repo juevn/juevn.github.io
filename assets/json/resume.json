@@ -11,6 +11,9 @@
       }
     ]
   },
+  "interests": [
+    "Multi-hop and multi-modal information retrieval; retrieval for task-performing agents; agent memory"
+  ],
   "education": [
     {
       "institution": "Pohang University of Science and Technology (POSTECH)",

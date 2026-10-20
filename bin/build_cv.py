@@ -33,6 +33,7 @@ CHROME_CANDIDATES = [
 
 # Rendered in this order; a section missing from resume.json is skipped entirely.
 SECTIONS = [
+    ("interests", "Research Interests"),
     ("education", "Education"),
     ("work", "Experience"),
     ("publications", "Publications"),
@@ -131,6 +132,9 @@ def render_entry(key, entry, owner=""):
     e = html.escape
     out = []
 
+    if key == "interests":
+        out.append(f'<div class="meta">{e(entry)}</div>')
+        return out
     if key == "education":
         area = f', {e(entry["area"])}' if entry.get("area") else ""
         out.append(row(
