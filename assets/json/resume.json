@@ -98,6 +98,27 @@
   ],
   "projects": [
     {
+      "name": "CANOPY: Adaptive-Granularity Evidence Compression for Multimodal RAG",
+      "event": "arXiv preprint arXiv:2610.00923",
+      "date": "2026",
+      "problem": "Choosing a retrieval granularity does not settle how much of each retrieved item to keep: coarse units carry irrelevant content, uniformly fine selection strips the context needed to interpret the evidence, and existing compressors handle the trade-off per modality.",
+      "contribution": "Represented retrieved items as hierarchies and scored regions against the query with a node encoder trained on gold evidence, selecting several granularities at once by parent-relative refinement with no LLM calls for node-level pruning; across five QA benchmarks over a 33M-item heterogeneous corpus, cut reader-input evidence tokens by 14.2–27.7% at comparable accuracy."
+    },
+    {
+      "name": "Hi-Q: Hierarchical Evidence-guided Query Refinement for Multi-Hop Question Answering",
+      "event": "NeurIPS 2026",
+      "date": "2026",
+      "problem": "A question is phrased at one granularity while the corpus is retrievable at another. Prior work imposes a fixed graph over the corpus, reformulates the query, or runs a generated program, but none decides when a query unit is already supported by evidence and when it must be refined.",
+      "contribution": "Posed this as retrievable granularity discovery: a resolution operator tests each query node against retrieved evidence, resolved nodes terminate, and unresolved ones expand through a dependency-preserving binary operator checked by a semantic coverage verifier — 52.3 EM / 64.0 F1 averaged over three multi-hop QA benchmarks under full-corpus retrieval, 15.1 EM over IRCoT."
+    },
+    {
+      "name": "SPARTA: Scalable and Principled Benchmark of Tree-Structured Multi-hop QA over Text and Tables",
+      "event": "ICLR 2026",
+      "date": "2026",
+      "problem": "Multi-hop QA benchmarks spanning text and tables are expensive to annotate, and existing ones give no guarantee that a generated query is answerable or that its structure looks natural.",
+      "contribution": "Built a fully automated SQL-centric pipeline that unifies tables and text into one relational representation, with provenance-based refinement for query validity and realistic-structure enforcement for phrasing — a quarter of HybridQA's annotation time."
+    },
+    {
       "name": "Home AI Agent with Event Memory",
       "event": "Korean government-hosted AI competition — finalist (top 20 of 1,100+ teams)",
       "date": "2026",

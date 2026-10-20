@@ -62,7 +62,7 @@ CSS = """
 @font-face { font-family: "CVIconFA"; src: url("../webfonts/fa-solid-900.woff2") format("woff2"); }
 @font-face { font-family: "CVIconAI"; src: url("../fonts/academicons.ttf") format("truetype"),
                                           url("../fonts/academicons.woff") format("woff"); }
-@page { size: A4; margin: 13mm 14mm; }
+@page { size: A4; margin: 11mm 14mm; }
 * { box-sizing: border-box; }
 body { font-family: "Charter","Georgia","Times New Roman",serif; font-size: 9.6pt; line-height: 1.32;
        color: #000; margin: 0; -webkit-font-smoothing: antialiased; }
@@ -89,8 +89,7 @@ h2 { font-size: 10.5pt; font-weight: 700; text-transform: uppercase; letter-spac
 .note { font-size: 8.4pt; }
 ul { margin: 1pt 0 0; padding-left: 12pt; }
 li { margin: .5pt 0; }
-h2, .row, .pub { break-inside: avoid; }
-.cv-section { break-inside: avoid; }
+h2, .row, .pub, .entry { break-inside: avoid; }
 h2 { break-after: avoid; }
 """
 
@@ -193,7 +192,8 @@ def render_entry(key, entry, owner=""):
         out.append(f'<div class="meta">{e(entry["summary"])}</div>')
     if entry.get("highlights"):
         out.append(bullets(entry["highlights"]))
-    return out
+    # Keep an entry's heading line and its bullets on the same page.
+    return ['<div class="entry">'] + out + ["</div>"]
 
 
 def find_chrome():
