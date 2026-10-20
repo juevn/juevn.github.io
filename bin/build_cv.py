@@ -37,6 +37,7 @@ SECTIONS = [
     ("interests", "Research Interests"),
     ("work", "Experience"),
     ("publications", "Publications"),
+    ("projects", "Projects"),
     ("talks", "Talks"),
     ("awards", "Honors & Awards"),
     ("teaching", "Teaching"),
@@ -157,6 +158,18 @@ def render_entry(key, entry, owner=""):
             f'<span class="meta">{authors}</span>',
             e(entry["venue"]),
         ))
+    elif key == "projects":
+        out.append(row(
+            f'<span class="ttl">{e(entry["name"])}</span><br>'
+            f'<span class="sub">{e(entry["event"])}</span>',
+            e(entry["date"]),
+        ))
+        out.append(
+            "<ul>"
+            f'<li><b>Problem:</b> {e(entry["problem"])}</li>'
+            f'<li><b>Contribution:</b> {e(entry["contribution"])}</li>'
+            "</ul>"
+        )
     elif key == "talks":
         out.append(row(
             f'<span class="ttl">{e(entry["name"])}</span><br>'

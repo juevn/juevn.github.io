@@ -96,6 +96,22 @@
       "url": "https://arxiv.org/abs/2602.23286"
     }
   ],
+  "projects": [
+    {
+      "name": "Home AI Agent with Event Memory",
+      "event": "Korean government-hosted AI competition — finalist (top 20 of 1,100+ teams)",
+      "date": "2026",
+      "problem": "Home cameras emit a stream of near-identical observations, so recovering what happened earlier means replaying footage, and recency-ordered logs bury the state changes that matter.",
+      "contribution": "Built event memory that merges continuing scenes into events while preserving observation counts and state transitions — 72 observations into 6 events (91.7% fewer list entries), and cited the designated event in 6 of 7 past-event questions against 3 for a recent-3-records baseline."
+    },
+    {
+      "name": "Life-Event-Based Public Service AI Agent",
+      "event": "Korean government-hosted AI competition — finalist (top 20 of 1,100+ teams)",
+      "date": "2026",
+      "problem": "Public services are indexed by procedure name, so residents who only know their own situation cannot tell what to file; and because procedures span multiple steps and deadlines, an agent that does not retain their conditions and completed steps forces them to re-explain each time.",
+      "contribution": "Kept the user's conditions and completion state as persistent memory and used it to decide what to surface next; linked 806 procedure items across 50 life events by 639 precedence relations, cutting precedence violations from 242 under deadline-only ordering to 0 on a 500-case regression."
+    }
+  ],
   "talks": [
     {
       "name": "SPARTA: Scalable and Principled Benchmark of Tree-Structured Multi-hop QA over Text and Tables",
