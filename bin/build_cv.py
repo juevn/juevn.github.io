@@ -62,7 +62,7 @@ CSS = """
 @font-face { font-family: "CVIconFA"; src: url("../webfonts/fa-solid-900.woff2") format("woff2"); }
 @font-face { font-family: "CVIconAI"; src: url("../fonts/academicons.ttf") format("truetype"),
                                           url("../fonts/academicons.woff") format("woff"); }
-@page { size: A4; margin: 11mm 14mm; }
+@page { size: A4; margin: 13mm 14mm; }
 * { box-sizing: border-box; }
 body { font-family: "Charter","Georgia","Times New Roman",serif; font-size: 9.6pt; line-height: 1.32;
        color: #000; margin: 0; -webkit-font-smoothing: antialiased; }
@@ -163,12 +163,7 @@ def render_entry(key, entry, owner=""):
             f'<span class="sub">{e(entry["event"])}</span>',
             e(entry["date"]),
         ))
-        out.append(
-            "<ul>"
-            f'<li><b>Problem:</b> {e(entry["problem"])}</li>'
-            f'<li><b>Contribution:</b> {e(entry["contribution"])}</li>'
-            "</ul>"
-        )
+        out.append(f'<div class="meta">{e(entry["description"])}</div>')
     elif key == "talks":
         out.append(row(
             f'<span class="ttl">{e(entry["name"])}</span><br>'
