@@ -33,8 +33,8 @@ CHROME_CANDIDATES = [
 
 # Rendered in this order; a section missing from resume.json is skipped entirely.
 SECTIONS = [
-    ("interests", "Research Interests"),
     ("education", "Education"),
+    ("interests", "Research Interests"),
     ("work", "Experience"),
     ("publications", "Publications"),
     ("talks", "Talks"),

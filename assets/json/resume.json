@@ -11,9 +11,6 @@
       }
     ]
   },
-  "interests": [
-    "Multi-hop and multi-modal information retrieval; retrieval for task-performing agents; agent memory"
-  ],
   "education": [
     {
       "institution": "Pohang University of Science and Technology (POSTECH)",
@@ -50,6 +47,9 @@
         "Achieved top grades in Deep Learning and NLP coursework"
       ]
     }
+  ],
+  "interests": [
+    "Multi-hop and multi-modal information retrieval; retrieval for task-performing agents; long-context management; agent memory"
   ],
   "work": [
     {
