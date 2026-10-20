@@ -31,7 +31,9 @@
       "startDate": "2021-02",
       "endDate": "2025-08",
       "highlights": [
-        "Ranked 1st in the department · Summa Cum Laude · GPA 4.04/4.3"
+        "Ranked 1st in the department",
+        "Graduated Summa Cum Laude",
+        "GPA: 4.04/4.3"
       ]
     },
     {
@@ -51,7 +53,10 @@
       "name": "SK hynix",
       "position": "Intern",
       "startDate": "2024-07",
-      "endDate": "2024-08"
+      "endDate": "2024-08",
+      "highlights": [
+        "Mobile FTL Team — AI model predicting user commands to improve flash translation layer performance"
+      ]
     },
     {
       "name": "Data Systems Lab, POSTECH",
