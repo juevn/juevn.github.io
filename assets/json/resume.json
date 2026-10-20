@@ -126,6 +126,12 @@
       "event": "Korean government-hosted AI competition — finalist (top 20 of 1,100+ teams)",
       "date": "2026",
       "description": "Keeps the user's conditions and completion state as persistent memory and uses it to decide what to surface next across procedures spanning multiple steps and deadlines — 806 procedure items across 50 life events linked by 639 precedence relations, cutting precedence violations from 242 under deadline-only ordering to 0 on a 500-case regression."
+    },
+    {
+      "name": "User Command Prediction for Mobile Flash Translation Layers",
+      "event": "SK hynix internship — Grand Prize",
+      "date": "2024",
+      "description": "Predicts the next user command from observed workload patterns so the flash translation layer can prepare for it instead of reacting once the request arrives."
     }
   ],
   "talks": [
