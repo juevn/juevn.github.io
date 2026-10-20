@@ -65,7 +65,8 @@
       "startDate": "2023-06",
       "endDate": "2025-08",
       "highlights": [
-        "Research Project: developed an open-domain text-table QA model"
+        "Research Project I: proposed the Text-DB QA task and built its benchmark (ICLR 2026)",
+        "Research Project II: developed an open-domain text-table QA model"
       ]
     }
   ],
